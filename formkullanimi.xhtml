@@ -1,0 +1,27 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html">
+<h:head></h:head>
+<h:body>
+	<h:form>
+		<h:panelGrid colums="2">
+			<h:outputText value="Ad-Soyad" />
+			<h:inputText value="#{managedBean.adSoyad}" />
+			<h:outputText value="Cinsiyet" />
+			<h:selectOneRadio value="#{managedBean.cinsiyet}">
+				<f:selectItem itemLabel="Erkek" itemValue="Erkek"/>
+				<f:selectItem itemLabel="Kadın" itemValue="Kadın"/>
+			</h:selectOneRadio>
+			<h:outputText value="E-posta" />
+			<h:inputText value="#{managedBean.email}" />
+			<h:outputText value="Adres"/>
+			<h:inputTextarea value="#{managedBean.adres}" />
+			<h:outputText value="Telefon" />
+			<h:inputText value="#{managedBean.telefon}" />
+			<h:commandButton value="Gönder" />
+		</h:panelGrid>
+	</h:form>
+</h:body>
+</html>
