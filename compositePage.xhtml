@@ -1,0 +1,32 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+	<html xmlns="http://www.w3.org/1999/xhtml"
+		xmlns:h="http://java.sun.com/jsf/html"
+		xmlns:composite="http://java.sun.com/jsf/composite">
+
+		<!-- INTERFACE -->
+		<composite:interface>
+			<composite:attribute name="Adını_yaz"></composite:attribute>
+			<composite:attribute name="Ad_degerini_al"></composite:attribute>
+			<composite:attribute name="Soyadını_yaz"></composite:attribute>
+			<composite:attribute name="Soyad_degerini_al"></composite:attribute>
+		</composite:interface>
+
+		<!-- IMPLEMENTATION -->
+		<composite:implementation>
+			<h:form>
+				<h:panelGrid columns="2" id="bilesenler">
+					#{cc.attrs.Adını_yaz}:
+					<h:inputText id="Ad"
+						value="#{cc.attrs.Ad_degerini_al}" />
+
+					#{cc.attrs.Soyadını_yaz}:
+					<h:inputText id="soyad"
+						value="#{cc.attrs.Soyad_degerini_al}" />
+					<h:commandButton action="isimSoyisim.xhtml"
+						value="Gönder" />
+				</h:panelGrid>
+			</h:form>
+		</composite:implementation>
+</html>
