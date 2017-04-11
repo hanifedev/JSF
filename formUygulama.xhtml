@@ -1,0 +1,54 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html">
+<h:head></h:head>
+<h:body>
+	<h:form id="kayit_formu">
+		<h:panelGrid columns="3">
+				<h:outputText value="Adınız:" />
+				<h:inputText id="ad" value="#{formUygulamaManagedBean.ad}" required="true" requiredMessage="İsim Alanı Zorunludur"/>
+				<h:message for="ad" style="color:red"/>
+				
+				<h:outputText value="Soyadınız:" />
+				<h:inputText id="soyad" value="#{formUygulamaManagedBean.soyad}" required="true" requiredMessage="Soyisim Alanı Zorunludur"/>
+				<h:message for="soyad" style="color:red"></h:message>
+				
+				<h:outputText value="E-posta Adresiniz:" />
+				<h:inputText id="email" value="#{formUygulamaManagedBean.eposta}" required="true" requiredMessage="Eposta Alanı Zorunludur"
+				validatorMessage="Geçersiz E-posta Adresi!">
+					<f:validateRegex pattern="^[_A-Za-z0-9-\+]+(\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\.[A-Za-z0-9]+)*(\.[A-Za-z]{2,}$)"></f:validateRegex>
+				</h:inputText>
+				<h:message for="email" style="color:red"/>
+				
+				<h:outputText value="Parolanız:" />
+				<h:inputSecret id="parola" value="#{formUygulamaManagedBean.parola}" required="true" requiredMessage="Parola Alanı Zorunludur"/>
+				<h:message for="parola" style="color:red"/>
+		</h:panelGrid>
+		
+		<h:panelGrid columns="2">
+				<h:outputText value="Yaşadığınız Şehir"/>
+				<h:selectOneMenu value="#{formUygulamaManagedBean.il}" >
+					<f:selectItems value="#{formUygulamaManagedBean.illeridondur()}"></f:selectItems>/>
+				</h:selectOneMenu>
+				
+				<h:outputText value="Cinsiyet"/>
+				<h:selectOneRadio value="#{formUygulamaManagedBean.cinsiyet}" required="true" requiredMessage="Cinsiyet Alanı Zorunludur">
+					<f:selectItems value="#{formUygulamaManagedBean.cinsiyetleridondur()}"></f:selectItems>
+				</h:selectOneRadio>
+				
+				<h:outputText value="Adres:" />
+				<h:inputTextarea value="#{formUygulamaManagedBean.adres}" required="true"/>
+		</h:panelGrid>
+		
+		<h:panelGrid columns="1">
+			<h:outputText value="İngilizce Bilginiz?" />
+			<h:selectOneRadio value="#{formUygulamaManagedBean.yabanci_dil}">
+				<f:selectItems value="#{formUygulamaManagedBean.ydsDoldur()}"></f:selectItems>
+			</h:selectOneRadio>
+		</h:panelGrid>
+		<h:commandButton action="gelen_veriler.xhtml" value="Gönder" />
+	</h:form>
+</h:body>
+</html>
